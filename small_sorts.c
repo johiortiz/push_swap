@@ -6,24 +6,25 @@
 /*   By: johyorti <johyorti@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 03:11:56 by johyorti          #+#    #+#             */
-/*   Updated: 2025/05/30 05:47:05 by johyorti         ###   ########.fr       */
+/*   Updated: 2025/05/31 02:43:41 by johyorti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_position_smallet_value(t_stack *stack_a)
+static int	ft_position_smallest_value(t_stack *stack_a)
 {
 	t_stack	*current_node = stack_a;
 	int	min_value;
 	int	min_pos;
-	int	current_pos = 0;
+	int	current_pos;
 
-	if (!curent_node)	// si la pila está vacía
-		return (-1); 	// (???????)
+	if (!current_node)	// si la pila está vacía
+		return (-1); 
 	// Inicializamos el primer nodo
 	min_value = current_node->value;
 	min_pos = 0;
+	current_pos = 0;
 	// Recorre el resto de la pila
 	while (current_node != NULL)
 	{
@@ -40,7 +41,7 @@ static int	ft_position_smallet_value(t_stack *stack_a)
 	return (min_pos);
 }
 
-void	ft_sort_three(stack **a)	// 'a' es u puntero al puntero de la cima de la pila A
+void	ft_sort_three(t_stack **a)	// 'a' es u puntero al puntero de la cima de la pila A
 {
 	int	x;
 	int	y;
@@ -67,7 +68,7 @@ void	ft_sort_three(stack **a)	// 'a' es u puntero al puntero de la cima de la pi
 		sa(a); // (2,1,3->1,2,3)
 	}
 	else if (x < y && y > z && x > z)
-		ra(a);	// (2,3,1->1,2,3)
+		rra(a);	// (2,3,1->1,2,3)
 }
 
 
@@ -79,7 +80,7 @@ void	ft_sort_four(t_stack **a, t_stack **b)
 	current_size = ft_get_stack_size(*a);	// obtener el tamaño de la pila
 	if (current_size != 4)	// si no tiene 4 elementos
 		return ;	// esta función no para esta situación, salimos
-	if (is_sorted(*a))	// si ya está ordenada, no hay nada que hacer, salimos
+	if (ft_is_sorted(*a))	// si ya está ordenada, no hay nada que hacer, salimos
 		return ;
 	smallest = ft_position_smallet_value(*a);
 	if (smallest == 0)	// si el más pequeño está en la posición 0
@@ -95,7 +96,7 @@ void	ft_sort_four(t_stack **a, t_stack **b)
 		rra(a);	// una rotación inversa lo trae directamente a la cima
 	pb(a, b);
 	ft_sort_three(a);
-	pb(a, b);
+	pa(a, b);
 }
 
 void	ft_sort_five(t_stack **a, t_stack **b)
@@ -111,8 +112,6 @@ void	ft_sort_five(t_stack **a, t_stack **b)
 	if (ft_is_sorted(*a))
 		return ;
 	smallest = ft_get_position_smallest_value(*a);
-	if (smallest == 0)
-		// no hacemos nada
 	else if (smallest == 1 || smallest == 2)
 	{
 		rot_num = smallest;
@@ -126,10 +125,11 @@ void	ft_sort_five(t_stack **a, t_stack **b)
 			rra(a);
 			rra_need--;
 		}
-		pb(a, b);
-		ft_sort_four(a, b);
-		pa(a, b);
+		
 	}
+	pb(a, b);
+	ft_sort_four(a, b);
+	pa(a, b);
 }
 
 void	ft_sort_six(t_stack **a, t_stack **b)

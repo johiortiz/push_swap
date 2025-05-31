@@ -6,7 +6,7 @@
 /*   By: johyorti <johyorti@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 16:53:07 by johyorti          #+#    #+#             */
-/*   Updated: 2025/05/30 21:55:35 by johyorti         ###   ########.fr       */
+/*   Updated: 2025/05/31 02:00:28 by johyorti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_stack_add_bottom(t_stack **stack_head, t_stack *node_to_add)
 	current->next = node_to_add;
 }
 
-void	ft_free_stack_node(t_stack **stack_head)
+void	ft_free_stack(t_stack **stack_head)
 {
 	t_stack	*current;
 	t_stack	*next_node;
@@ -78,7 +78,7 @@ bool	ft_is_sorted(t_stack *stack_a_head)
 	t_stack	*current;
 
 	if (stack_a_head == NULL || stack_a_head->next == NULL)
-		return (false);
+		return (true);
 	current = stack_a_head;
 	while (current->next != NULL)
 	{
@@ -89,11 +89,11 @@ bool	ft_is_sorted(t_stack *stack_a_head)
 	return (true);
 }
 
-void	ft_asign_index(t_stack *stack_a)
+void	ft_assign_index(t_stack *stack_a)
 {
 	t_stack	*current_node;	// Para recorrer la pila
 	int	size;				// Para guardar cuántos números hay
-	int arr;				// Para copiar y ordenar los números
+	int *arr;				// Para copiar y ordenar los números
 	int	i;
 	
 	if (!stack_a)	// Si no hay pila, no hay nada que hacer
@@ -107,7 +107,7 @@ void	ft_asign_index(t_stack *stack_a)
 	arr = (int *)malloc(sizeof(int) * size);
 	if (!arr)
 	{
-		ft_exit_error(stack_a,NULL);
+		ft_exit_error(NULL,NULL);
 		return ;
 	}
 	// Copiamos los números de la pila al array

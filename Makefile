@@ -6,14 +6,14 @@
 #    By: johyorti <johyorti@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/24 17:57:21 by johyorti          #+#    #+#              #
-#    Updated: 2025/05/24 17:59:24 by johyorti         ###   ########.fr        #
+#    Updated: 2025/05/31 02:25:31 by johyorti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 ARCHIVE = push_swap.a
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g -O2 
+CFLAGS = -Wall -Werror -Wextra -I $(LIBFT_DIR)
 MAKE_LIB = ar -rcs
 
 # Libft configuration

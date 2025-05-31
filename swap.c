@@ -6,7 +6,7 @@
 /*   By: johyorti <johyorti@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 20:10:03 by johi              #+#    #+#             */
-/*   Updated: 2025/05/30 17:04:54 by johyorti         ###   ########.fr       */
+/*   Updated: 2025/05/31 02:08:39 by johyorti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	sb(t_stack **stack_b)
 	ft_putstr_fd("sb\n", 1);
 }
 
-void	ss(t_stack *stack_a, t_stack **stack_b)
+void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
