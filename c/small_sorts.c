@@ -6,7 +6,7 @@
 /*   By: johyorti <johyorti@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 03:11:56 by johyorti          #+#    #+#             */
-/*   Updated: 2025/06/02 19:43:05 by johyorti         ###   ########.fr       */
+/*   Updated: 2025/06/03 19:15:18 by johyorti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,28 @@ void	ft_sort_three(t_stack **a)
 	int	y;
 	int	z;
 	
-	if (!a || !*a || !(*a)->next)
+	if (!a || !*a || !(*a)->next || !(*a)->next->next)
 		return ;
 	x = (*a)->value;
 	y = (*a)->next->value;
 	z = (*a)->next->next->value;
 	
-	if (x > y && y < z)
+	if (x > y && y > z)        // 3 2 1
 	{
-		if (x < z)
-			rra(a);
-		else
-			ra(a);
-	}
-	else if (x > y && x > z)
-		ra(a);
-	if ((*a)->value > (*a)->next->value)
 		sa(a);
+		rra(a);
+	}
+	else if (x > y && y < z && x > z)  // 3 1 2
+		ra(a);
+	else if (x > y && y < z && x < z)  // 2 1 3
+		sa(a);
+	else if (x < y && y > z && x > z)  // 2 3 1
+		rra(a);
+	else if (x < y && y > z && x < z)  // 1 3 2
+	{
+		sa(a);
+		ra(a);
+	}
 }
 
 

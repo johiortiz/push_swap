@@ -6,7 +6,7 @@
 /*   By: johyorti <johyorti@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 00:15:01 by johyorti          #+#    #+#             */
-/*   Updated: 2025/06/02 19:48:24 by johyorti         ###   ########.fr       */
+/*   Updated: 2025/06/03 19:11:15 by johyorti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,23 @@ static int	ft_sqrt(int n)
 	return (i);
 }
 
+static void	ft_process_group(t_stack **a, t_stack **b, int *index_count, int size)
+{
+	if ((*a)->index <= *index_count)
+	{
+		pb(a, b);
+		rb(b);
+		(*index_count)++;
+	}
+	else if ((*a)->index <= *index_count + size)
+	{
+		pb(a, b);
+		(*index_count)++;
+	}
+	else
+		ra(a);
+}
+
 void	ft_sort_groups(t_stack **a, t_stack **b, int n_arg)
 {
 	int	index_count;
@@ -35,28 +52,14 @@ void	ft_sort_groups(t_stack **a, t_stack **b, int n_arg)
 	if (size == 0)
 		size = n_arg;
 	while (*a != NULL)
-	{
-		if ((*a)->index <= index_count)
-		{
-			pb(a, b);
-			rb(b);
-			index_count++;
-		}
-		else if ((*a)->index <= index_count + size)
-		{
-			pb(a, b);
-			index_count++;
-		}
-		else
-			ra(a);
-	}
+		ft_process_group(a, b, &index_count, size);
 }
 
 static int	ft_biggest_index_pos(t_stack *stack)
 {
-	int	bigger_index;
-	int	bigger_pos;
-	int current_pos;
+	int		bigger_index;
+	int		bigger_pos;
+	int		current_pos;
 	t_stack	*current_node;
 
 	if (!stack)
@@ -64,7 +67,7 @@ static int	ft_biggest_index_pos(t_stack *stack)
 	bigger_index = stack->index;
 	bigger_pos = 0;
 	current_pos = 0;
-	current_node  = stack;
+	current_node = stack;
 	while (current_node != NULL)
 	{
 		if (current_node->index > bigger_index)

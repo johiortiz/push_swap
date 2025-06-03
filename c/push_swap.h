@@ -6,7 +6,7 @@
 /*   By: johyorti <johyorti@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 17:46:02 by johyorti          #+#    #+#             */
-/*   Updated: 2025/06/02 20:03:52 by johyorti         ###   ########.fr       */
+/*   Updated: 2025/06/03 19:44:47 by johyorti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,7 @@ void	ft_sort_stack(t_stack **a, t_stack **b);
 
 // Utils (utils.c)
 void	ft_error_exit(t_stack **a, t_stack **b);
+
+void print_move(const char *move, int *moves);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: johyorti <johyorti@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 18:26:03 by johyorti          #+#    #+#             */
-/*   Updated: 2025/06/02 19:20:35 by johyorti         ###   ########.fr       */
+/*   Updated: 2025/06/03 19:45:51 by johyorti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-
+	
 	stack_a = NULL;
 	stack_b = NULL;
 

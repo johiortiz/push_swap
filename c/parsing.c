@@ -6,7 +6,7 @@
 /*   By: johyorti <johyorti@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 17:56:25 by johyorti          #+#    #+#             */
-/*   Updated: 2025/06/02 20:05:36 by johyorti         ###   ########.fr       */
+/*   Updated: 2025/06/03 19:11:30 by johyorti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,13 @@ static void	ft_parse_string_with_spaces(const char	*arg_str, t_stack **stack_a)
 static void	ft_parse_individual_arguments(int argc, char **argv, t_stack **stack_a)
 {
 	int	i;
-	 i = 1;
-	 while (i < argc)
-	 {
+
+	i = 1;
+	while (i < argc)
+	{
 		ft_process_single_number_str(argv[i], stack_a, NULL);
 		i++;
-	 }
+	}
 }
 
 void	ft_parse_arguments(int argc, char **argv, t_stack **stack_a)
