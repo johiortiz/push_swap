@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stacl_utils2.c                                     :+:      :+:    :+:   */
+/*   stack_utils2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: johyorti <johyorti@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 17:41:38 by johyorti          #+#    #+#             */
-/*   Updated: 2025/06/02 17:50:40 by johyorti         ###   ########.fr       */
+/*   Updated: 2025/06/17 20:32:58 by johyorti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_copy_stack_to_array(t_stack *stack, int *arr, int size)
 {
-	int	i;
+	int		i;
 	t_stack	*current_node;
 
 	current_node = stack;
@@ -51,10 +51,11 @@ static void	ft_sort_array(int *arr, int size)
 	}
 }
 
-static void	ft_assign_index_from_sorted_array(t_stack *stack, int *arr, int size)
+static void	ft_assign_index_from_sorted_array(t_stack *stack, int *arr,
+		int size)
 {
 	t_stack	*current_node;
-	int	i;
+	int		i;
 
 	current_node = stack;
 	while (current_node != NULL)
@@ -75,9 +76,8 @@ static void	ft_assign_index_from_sorted_array(t_stack *stack, int *arr, int size
 
 void	ft_assign_index(t_stack *stack_a)
 {
-	t_stack	*current_node;
-	int	size;
-	int	*arr;
+	int		size;
+	int		*arr;
 
 	if (!stack_a)
 		return ;

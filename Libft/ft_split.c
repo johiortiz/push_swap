@@ -6,7 +6,7 @@
 /*   By: johyorti <johyorti@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 16:28:53 by johyorti          #+#    #+#             */
-/*   Updated: 2024/10/10 03:56:39 by johyorti         ###   ########.fr       */
+/*   Updated: 2025/06/28 20:53:58 by johyorti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,4 @@ char	**ft_split(char const *s, char c)
 	}
 	matrix[j] = NULL;
 	return (matrix);
-	
 }

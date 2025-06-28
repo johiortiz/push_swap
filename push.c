@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: johi <johi@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: johyorti <johyorti@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 20:41:30 by johi              #+#    #+#             */
-/*   Updated: 2025/05/29 20:59:18 by johi             ###   ########.fr       */
+/*   Updated: 2025/06/17 20:15:28 by johyorti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	t_stack	*temp;
 
 	if (*stack_b == NULL)
-		return;
+		return ;
 	temp = *stack_b;
 	*stack_b = (*stack_b)->next;
 	temp->next = *stack_a;
 	*stack_a = temp;
-	ft_putstr_fd("%pa\n", 1);
+	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_stack **stack_a, t_stack **stack_b)

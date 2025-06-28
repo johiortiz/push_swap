@@ -6,13 +6,14 @@
 /*   By: johyorti <johyorti@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 17:46:02 by johyorti          #+#    #+#             */
-/*   Updated: 2025/05/31 02:36:42 by johyorti         ###   ########.fr       */
+/*   Updated: 2025/06/17 20:29:29 by johyorti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
@@ -21,10 +22,10 @@
 
 typedef struct s_stack
 {
-	int					value;
-	int					index;
-	struct	s_stack 	*next;
-}	t_stack;
+	int				value;
+	int				index;
+	struct s_stack	*next;
+}		t_stack;
 
 // Initialization & Parsing (parsing.c and push_swap.c)
 void	ft_parse_arguments(int argc, char **argv, t_stack **stack_a);
@@ -64,21 +65,27 @@ void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 
 // Sorts
+// Sorts Utils
+void	ft_rotate_to_smallest_on_top(t_stack **a, int smallest_pos,
+			int stack_size);
+int		ft_position_smallest_value(t_stack *stack_a);
+
 // Short Sorts
 void	ft_sort_three(t_stack **a);
 void	ft_sort_four(t_stack **a, t_stack **b);
 void	ft_sort_five(t_stack **a, t_stack **b);
+void	ft_sort_six(t_stack **a, t_stack **b);
 
 // Big sorts
-void	ft_sort_groups(t_stack **a t_stack **b, int n_arg);
-static int	ft_biggest_index_pos(t_stack *stack);
+void	ft_sort_groups(t_stack **a, t_stack **b, int n_arg);
 void	ft_sort_back(t_stack **a, t_stack **b);
 
 // Stack Sort
 void	ft_sort_stack(t_stack **a, t_stack **b);
 
-
 // Utils (utils.c)
 void	ft_error_exit(t_stack **a, t_stack **b);
+
+void	print_move(const char *move, int *moves);
 
 #endif
